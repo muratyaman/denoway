@@ -138,8 +138,8 @@ async function cacheKeys(like: string): Promise<string[]> {
   return keys;
 }
 
-async function cacheSet(k: string, v: string, ex = 0): Promise<boolean> {
-  const s = await redis.set(k, v, ex ? { ex } : {});
+async function cacheSet(k: string, v: string, px = 0): Promise<boolean> {
+  const s = await redis.set(k, v, px ? { px } : {});
   return !!s;
 }
 
